@@ -28,3 +28,17 @@ big_string = """
 """
 
 print(big_string)
+
+# identification of the object
+print(id(big_string))
+
+print(ord("D"))
+print(ord("Ї"))
+print(chr(1031))
+
+unicode_cow = "🐮"
+print(ord(unicode_cow))
+unicode_cow2 = "\U0001F42E"
+
+print(unicode_cow)
+print(unicode_cow2)
