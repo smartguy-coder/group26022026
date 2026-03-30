@@ -1,44 +1,56 @@
-'some string 1'
-"some string 2"
-"""big string"""
+from pywebio.input import input, slider
+from pywebio.output import put_markdown, put_text, put_image
 
-name = 'Alex'
-surname = 'Clinton'
-# імя = "kjfdghgvhf"   bad idea
-my_favorite_city = "Одеса - <>"
-print(my_favorite_city)
+import pictures
+import prices
+from discount import DISCOUNT_TRIGGER_COST, DISCOUNT_PERCENTAGE
 
-link_poem = "http://litopys.org.ua/shevchenko/shev205.htm"
-big_string = """
-Мені тринадцятий минало.
-Я пас ягнята за селом.
-Чи то так сонечко сіяло,
-Чи так мені чого було?
-Мені так любо, любо стало,
-Неначе в Бога......
-Уже прокликали до паю,
-А я собі у бур’яні
-Молюся Богу... І не знаю,
-Чого маленькому мені
-Тойді так приязно молилось,
-Чого так весело було.
-Господнє небо, і село,
-Ягня, здається, веселилось!
-І сонце гріло, не пекло!
-"""
+# Header
+put_markdown("# 🍽️ Ресторан \"Смачна їжа\"")
+put_markdown("---")
 
-print(big_string)
+# MENU
+put_markdown("## 📋 Menu:")
 
-# identification of the object
-print(id(big_string))
+put_image(pictures.PICTURE_PIZZA)
+put_text(f"🍕Pizza by {prices.PRICE_PIZZA} grn")
 
-print(ord("D"))
-print(ord("Ї"))
-print(chr(1031))
+put_image(pictures.PICTURE_CAVIAR, width="300")
+put_text(f"Caviar by {prices.PRICE_CAVIAR_10g} grn / 10g")
 
-unicode_cow = "🐮"
-print(ord(unicode_cow))
-unicode_cow2 = "\U0001F42E"
+# Order placing
+put_markdown("## Ordering:")
 
-print(unicode_cow)
-print(unicode_cow2)
+quantity_pizza = input("How many pizza do you like?", type="number", min=0, value=1)
+quantity_caviar_g = slider(label="How much caviar do you like?", min_value=0, max_value=1000, value=10, step=10)
+quantity_caviar = quantity_caviar_g / 10
+
+# calculation
+cost_pizza = quantity_pizza * prices.PRICE_PIZZA
+cost_caviar = quantity_caviar * prices.PRICE_CAVIAR_10g
+total_cost = cost_caviar + cost_pizza
+
+discount_summa = 0
+if total_cost >= DISCOUNT_TRIGGER_COST:
+    discount_summa = round(total_cost * DISCOUNT_PERCENTAGE / 100, 0)
+
+final_cost = total_cost - discount_summa
+
+# ORDER
+put_markdown("## RESULT:")
+
+if cost_pizza:
+    put_text(f"🍕Pizza: {quantity_pizza} / {prices.PRICE_PIZZA} grn = {cost_pizza}")
+if cost_caviar:
+    put_text(f"🍕cost_caviar: {quantity_caviar_g} / {prices.PRICE_CAVIAR_10g} grn/10g = {cost_caviar}")
+
+if total_cost:
+    put_text(f"Total cost: {total_cost}")
+
+
+if discount_summa:
+    put_text(f"discount_summa : {discount_summa}")
+    put_text(f"))))))))))))))")
+
+
+put_text(f"final_cost: {final_cost}")
