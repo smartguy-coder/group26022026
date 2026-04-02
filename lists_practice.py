@@ -22,7 +22,7 @@ my_list0c = [
     'bread',
     'milk',
     "#' ,",
-    "data",
+    "data"
 ]
 print(my_list0c)
 my_list1 = ['soccer', 'tennis', 'chess']
