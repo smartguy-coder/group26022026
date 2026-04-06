@@ -1,4 +1,3 @@
-numbers = [1, 3, 4]
 names = ['Anna', "Ivan"]
 mixed = [
     1,
@@ -36,3 +35,14 @@ print(id(number))
 number = number + 1
 print(id(number))
 
+numbers = [1, 3, 4]
+print(id(numbers))
+numbers[0] = 200  # change elem
+print(numbers)
+print(id(numbers))
+
+# add values
+numbers.append(3000)
+numbers.append(3000)
+print(numbers)
+print(id(numbers))
