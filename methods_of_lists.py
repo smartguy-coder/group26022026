@@ -84,3 +84,16 @@ print(numbers2)
 print(id(numbers2))
 print(id(numbers3))
 
+# slices
+#             age, weight, salary,   name, surname,      hobbies
+person_data = [22,    85,    56000, "Alex", "Bush", ['soccer', "tennis"]]
+hobbies = person_data[-1]
+print(hobbies)
+name_surname = person_data[3:5]
+print(name_surname)
+print(id(person_data))
+copy_of_person_data = person_data[:]
+print(copy_of_person_data)
+print(id(copy_of_person_data))
+
+
