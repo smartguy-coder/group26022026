@@ -35,7 +35,7 @@ print(id(number))
 number = number + 1
 print(id(number))
 
-numbers = [1, 3, 4]
+numbers = [1, 3, 3, 4]
 print(id(numbers))
 numbers[0] = 200  # change elem
 print(numbers)
@@ -43,7 +43,7 @@ print(id(numbers))
 
 # add values
 numbers.append(3000)
-numbers.append(3000)
+numbers.append(30001)
 print(numbers)
 print(id(numbers))
 
@@ -51,3 +51,10 @@ numbers.insert(1, 22)
 print(numbers)
 print(id(numbers))
 
+# remove data
+numbers.remove(3)
+print(numbers)
+numbers.pop()
+print(numbers)
+numbers.pop(0)
+print(numbers)
