@@ -46,3 +46,8 @@ numbers.append(3000)
 numbers.append(3000)
 print(numbers)
 print(id(numbers))
+
+numbers.insert(1, 22)
+print(numbers)
+print(id(numbers))
+
