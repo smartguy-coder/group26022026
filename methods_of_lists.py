@@ -64,3 +64,20 @@ print(is_33_presented_in_numbers)
 if is_33_presented_in_numbers:
     numbers.remove(33)
 print(numbers)
+
+# length of list
+elements_in_numbers_count = len(numbers)
+print(elements_in_numbers_count)
+
+# sorting
+numbers2 = [1, 7, 2, 3]
+print(numbers2)
+numbers2.sort(reverse=True)
+print(numbers2)
+print(numbers2)
+
+numbers3 = sorted(numbers2)
+print(numbers3, 'sorted')
+print(numbers2)
+
+
