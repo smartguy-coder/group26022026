@@ -6,10 +6,10 @@ mixed = [
     True,
     False,
     "some text",
-
     ['123', 1232],
-
 ]
+
+# get item by index
 
 first_element = mixed[0]
 print(first_element)
@@ -23,4 +23,16 @@ print(last_element)
 last_element_in_last_element = last_element[-1]
 print(last_element_in_last_element)
 
+# some_element = mixed[10]
+
+# change lists
+string = '123'
+print(id(string))
+string = string + '1'
+print(id(string))
+
+number = 123
+print(id(number))
+number = number + 1
+print(id(number))
 
