@@ -99,4 +99,34 @@ print(id(copy_of_person_data))
 reversed_data = person_data[::3]
 print(reversed_data)
 
+copy_of_person_data2 = person_data.copy()
+print(copy_of_person_data2)
+
+# slices with strings
+text = 'I love Kremenchuh'
+city = text[7:]
+print(city)
+
+fifth_letter = text[4]
+# text[4] = 'g'
+print(fifth_letter)
+
+for letter in text:
+    print(letter)
+
+is_odesa_in_text = "odesa" in text.lower()
+print(is_odesa_in_text)
+
+# mult and summa
+
+words = ["apple", "pear"]
+words2 = ["pans", "caps"]
+many_words = words * 200
+print(many_words)
+
+# words.append(words2)
+# words = words + words2
+words.extend(words2)
+words.extend('dgffdsgjhdfgfgfdjgfj')
+print(words)
 
