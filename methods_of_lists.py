@@ -42,7 +42,7 @@ print(numbers)
 print(id(numbers))
 
 # add values
-numbers.append(3000)
+numbers.append(33)
 numbers.append(30001)
 print(numbers)
 print(id(numbers))
@@ -57,4 +57,10 @@ print(numbers)
 numbers.pop()
 print(numbers)
 numbers.pop(0)
+print(numbers)
+
+is_33_presented_in_numbers = 33 in numbers
+print(is_33_presented_in_numbers)
+if is_33_presented_in_numbers:
+    numbers.remove(33)
 print(numbers)
