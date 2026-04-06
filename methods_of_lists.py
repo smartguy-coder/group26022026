@@ -96,4 +96,7 @@ copy_of_person_data = person_data[:]
 print(copy_of_person_data)
 print(id(copy_of_person_data))
 
+reversed_data = person_data[::3]
+print(reversed_data)
+
 
