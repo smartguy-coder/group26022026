@@ -27,7 +27,16 @@ def calculate_summa(number_1: int | float, number_2: int | float) -> float:
 
 
 def get_travel_info(driver: str, passenger_1: str, passenger_2: str = "", passenger_3: str = 'sister') -> str:
-    people_in_car = f"DRIVER: {driver.title()}; passengers: {passenger_1}, {passenger_2}, {passenger_3}."
+    passengers = [passenger_1, passenger_2, passenger_3]
+    #                  ['Anastasiia', '', '']
+    real_passengers = []
+    for passenger in passengers:
+        if passenger:
+            real_passengers.append(passenger)
+
+    passengers_str = ", ".join(real_passengers)
+
+    people_in_car = f"DRIVER: {driver.title()}; passengers: {passengers_str}."
     return people_in_car
 
 
