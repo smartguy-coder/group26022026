@@ -1,56 +1,40 @@
-from pywebio.input import input, slider
-from pywebio.output import put_markdown, put_text, put_image
+from utils import get_travel_info
 
-import pictures
-import prices
-from discount import DISCOUNT_TRIGGER_COST, DISCOUNT_PERCENTAGE
+# message0105 = get_travel_info(driver='Vasyl', passenger_3='Alla', passenger_2='Andriy')
+# print(message0105)
 
-# Header
-put_markdown("# 🍽️ Ресторан \"Смачна їжа\"")
-put_markdown("---")
+message0105 = get_travel_info('Vasyl', 'alla', passenger_3='pavlo', passenger_2='petro')
+print(message0105)
+message0105 = get_travel_info('Vasyl', 'alla', passenger_3='petro')
+print(message0105)
 
-# MENU
-put_markdown("## 📋 Menu:")
+# message0105 = get_travel_info(passenger_3='petro')
+# print(message0105)
 
-put_image(pictures.PICTURE_PIZZA)
-put_text(f"🍕Pizza by {prices.PRICE_PIZZA} grn")
+driver, passenger_1, *other = "vasyl", 'alla', 'pavlo', 'petro'
+print(driver)
+print(passenger_1)
+print(other)
 
-put_image(pictures.PICTURE_CAVIAR, width="300")
-put_text(f"Caviar by {prices.PRICE_CAVIAR_10g} grn / 10g")
+message3004 = get_travel_info(passenger_2='Alla', passenger_1='Andriy', passenger_3='Pavlo', driver='Vasyl')
+print(message3004)
 
-# Order placing
-put_markdown("## Ordering:")
+people = {
+    "passenger_1": 'Nicol',
+    "passenger_2": 'Nicol2',
+    "driver": 'Ivan',
+}
 
-quantity_pizza = input("How many pizza do you like?", type="number", min=0, value=1)
-quantity_caviar_g = slider(label="How much caviar do you like?", min_value=0, max_value=1000, value=10, step=10)
-quantity_caviar = quantity_caviar_g / 10
+new_way_arguments_provided = get_travel_info(**people)
+print(new_way_arguments_provided)
 
-# calculation
-cost_pizza = quantity_pizza * prices.PRICE_PIZZA
-cost_caviar = quantity_caviar * prices.PRICE_CAVIAR_10g
-total_cost = cost_caviar + cost_pizza
+# TEMPLATE_STR = 'Our driver today is {}, and passenger {}'
+# msg = TEMPLATE_STR.format(*other)
+# print(msg)
 
-discount_summa = 0
-if total_cost >= DISCOUNT_TRIGGER_COST:
-    discount_summa = round(total_cost * DISCOUNT_PERCENTAGE / 100, 0)
+TEMPLATE_STR = 'Our driver today is {driver}, and passenger {passenger_1}'
+msg = TEMPLATE_STR.format(**people)
+print(msg)
 
-final_cost = total_cost - discount_summa
-
-# ORDER
-put_markdown("## RESULT:")
-
-if cost_pizza:
-    put_text(f"🍕Pizza: {quantity_pizza} / {prices.PRICE_PIZZA} grn = {cost_pizza}")
-if cost_caviar:
-    put_text(f"🍕cost_caviar: {quantity_caviar_g} / {prices.PRICE_CAVIAR_10g} grn/10g = {cost_caviar}")
-
-if total_cost:
-    put_text(f"Total cost: {total_cost}")
-
-
-if discount_summa:
-    put_text(f"discount_summa : {discount_summa}")
-    put_text(f"))))))))))))))")
-
-
-put_text(f"final_cost: {final_cost}")
+test_func = get_travel_info('Vadym', "Anastasiia")
+print(test_func)
