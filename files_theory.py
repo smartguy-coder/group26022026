@@ -29,7 +29,7 @@ with open('README.md', mode='r', encoding='utf-8') as file:
     flag = True
     while flag:
         line = file.readline()
-        print(line, end='')
+        # print(line, end='')
 
         if 'tornado' in line:
             break
@@ -46,3 +46,68 @@ with open('new.txt', mode='a', encoding='utf-8') as file:
 
 with open('logs.csv', mode='a', encoding='utf-8') as file:
     file.write('Alex;Bush;167654;Los Angeles\n')
+
+print()
+
+
+# binary files
+# import requests
+#
+# url = 'https://moemisto.ua/img/cache/blog_show_photo/blog/0004/75/fe2a5835d6d62a84d64cc357061c8186a244a1a8.jpeg'
+#
+# response = requests.get(url)
+# content = response.content
+# print(content)
+
+
+# with open('spring.jpeg', mode='bw') as image_file:
+#     image_file.write(content)
+
+# with open('spring.jpeg', mode='br')  as image_file:
+#     print(image_file.read())
+#
+#
+# with open('spring.jpeg', mode='ba')  as image_file:
+#     image_file.write(b' hello 5655 =-00')
+
+
+# JSON
+import json
+
+# dict -> json
+
+user_data_as_dict = {
+    'name': "Василь",
+    'age': 18,
+    "more_data": None,
+    'hobbies': ['tennis']
+}
+
+user_data_as_json = json.dumps(user_data_as_dict, ensure_ascii=False)
+print(user_data_as_json)
+
+# json -> dict
+
+user_data_from_json = json.loads(user_data_as_json)
+print(user_data_from_json)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
