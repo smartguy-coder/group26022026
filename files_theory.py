@@ -65,8 +65,7 @@ print()
 
 # with open('spring.jpeg', mode='br')  as image_file:
 #     print(image_file.read())
-#
-#
+
 # with open('spring.jpeg', mode='ba')  as image_file:
 #     image_file.write(b' hello 5655 =-00')
 
@@ -84,30 +83,22 @@ user_data_as_dict = {
 }
 
 user_data_as_json = json.dumps(user_data_as_dict, ensure_ascii=False)
-print(user_data_as_json)
+# print(user_data_as_json)
 
 # json -> dict
 
 user_data_from_json = json.loads(user_data_as_json)
-print(user_data_from_json)
+# print(user_data_from_json)
 
+# dict -> file.json
 
+with open('user_data.json', mode='w', encoding='utf-8') as file:
+    json.dump(user_data_from_json, file, ensure_ascii=False, indent=4)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# file.json -> dict
+with open('user_data.json', mode='r', encoding='utf-8') as file:
+    user_data_from_file = json.load(file)
+    print(user_data_from_file)
 
 
 
