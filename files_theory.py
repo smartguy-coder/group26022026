@@ -14,7 +14,7 @@
 
 
 # open file
-with open('requirements.txt', encoding='utf-8') as file:
+with open('README.md', mode='r', encoding='utf-8') as file:
     # # all rows
     # content = file.read()
     # print(content)
@@ -37,4 +37,12 @@ with open('requirements.txt', encoding='utf-8') as file:
             # break
             flag = False
 
+# read file
+# with open('new.txt', mode='w', encoding='utf-8') as file:
+with open('new.txt', mode='a', encoding='utf-8') as file:
+    file.write('first line1\n')
+    file.write('second line\n')
 
+
+with open('logs.csv', mode='a', encoding='utf-8') as file:
+    file.write('Alex;Bush;167654;Los Angeles\n')
