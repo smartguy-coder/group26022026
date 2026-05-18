@@ -7,3 +7,4 @@ PRICE_SAUCE = 10
 PRICE_CHEESE = 30
 PRICE_HERBS = 50
 PRICE_COLA_05l = 60
+print(__name__)
