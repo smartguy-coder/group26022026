@@ -88,6 +88,13 @@ query = {
 }
 
 
+# TEXT QUERY
+query = {'title': 'iPhone 17 max'}
+query = {'title': 'iPhone 17 Pro Max'}
+query = {'title': {"$regex": "i*"}}  # * -> any sequence of letters
+query = {'title': {"$regex": "I*", "$options": 'i'}}  # i -> any register
+query = {'title': {"$regex": "i*max", "$options": 'i'}}
+
 
 
 
