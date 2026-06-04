@@ -56,8 +56,16 @@ query = {
 wanted_book = collection_phones.find_one(query)
 print(wanted_book)
 
+# find_many
 
 
+
+all_phones = collection_phones.find()
+# print(list(all_phones))
+print(all_phones)
+
+for phone in all_phones:
+    print(phone)
 
 
 
