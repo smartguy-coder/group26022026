@@ -108,7 +108,11 @@ for phone in all_phones:
     print(phone)
 
 
-
+# DELETE
+query = {'_id': ObjectId('6a21a9d65f7f195a50597ade')}
+updated_obj = collection_phones.delete_one(query)
+# updated_obj = collection_phones.delete_many(query)
+print(updated_obj)
 
 
 
