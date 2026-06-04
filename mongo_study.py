@@ -94,11 +94,13 @@ query = {'title': 'iPhone 17 Pro Max'}
 query = {'title': {"$regex": "i*"}}  # * -> any sequence of letters
 query = {'title': {"$regex": "I*", "$options": 'i'}}  # i -> any register
 query = {'title': {"$regex": "i*max", "$options": 'i'}}
+query = {}
 
 
 
-
-all_phones = collection_phones.find(query)
+# all_phones = collection_phones.find(query).limit(5).skip(2)
+# all_phones = collection_phones.find(query).sort('price', -1)
+all_phones = collection_phones.find(query).limit(5).sort('price', -1).skip(2)
 # print(list(all_phones))
 print(all_phones)
 
