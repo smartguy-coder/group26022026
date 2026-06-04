@@ -30,8 +30,8 @@ book = {'title': '10 negro', "price": 365, 'description': "English classic detec
 collection_books.insert_one(book)
 
 phone = {'title': 'iPhone 17', "price": 65000, 'description': "cool"}
-created_phone = collection_phones.insert_one(phone)
-print(created_phone)
+# created_phone = collection_phones.insert_one(phone)
+# print(created_phone)
 
 # add many
 phones = [
@@ -40,8 +40,8 @@ phones = [
     {'title': 'iPhone 15', "price": 65000, 'description': "cool"},
     {'title': 'iPhone 14', "price": 65000, 'description': "cool", 'is_restored': True},
 ]
-created_phones = collection_phones.insert_many(phones)
-print(created_phones)
+# created_phones = collection_phones.insert_many(phones)
+# print(created_phones)
 
 
 # READ
@@ -60,7 +60,21 @@ print(wanted_book)
 
 
 
-all_phones = collection_phones.find()
+# all_phones = collection_phones.find()
+
+query = {'title': 'iPhone 17'}
+query = {'price': 65111}
+query = {'price': {"$gt": 65000}}
+query = {'price': {"$gte": 65000}}
+query = {'price': {"$gt": 65000, "$lt": 68000}}
+query = {'price': {"$gt": 65000, "$lte": 68000}, 'title': 'iPhone 15'}
+
+
+
+
+
+
+all_phones = collection_phones.find(query)
 # print(list(all_phones))
 print(all_phones)
 
