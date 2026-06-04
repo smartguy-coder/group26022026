@@ -62,13 +62,30 @@ print(wanted_book)
 
 # all_phones = collection_phones.find()
 
+# AND QUERY
 query = {'title': 'iPhone 17'}
 query = {'price': 65111}
 query = {'price': {"$gt": 65000}}
 query = {'price': {"$gte": 65000}}
 query = {'price': {"$gt": 65000, "$lt": 68000}}
-query = {'price': {"$gt": 65000, "$lte": 68000}, 'title': 'iPhone 15'}
+query = {'price': {"$gte": 65000, "$lte": 68000}, 'title': 'iPhone 14'}
 
+# OR QUERY
+query = {
+    '$or': [
+        {'price': 65111},
+        {'title': 'iPhone 14', 'is_restored': False}
+    ]
+}
+
+# NOT QUERY
+query = {
+    'price':  {"$ne": 65111}
+}
+
+query = {
+    'is_restored':  {"$ne": True}
+}
 
 
 
