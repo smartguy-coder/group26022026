@@ -2,6 +2,7 @@ import os
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 from dotenv import load_dotenv
+from bson import ObjectId
 
 load_dotenv()
 
@@ -43,6 +44,17 @@ created_phones = collection_phones.insert_many(phones)
 print(created_phones)
 
 
+# READ
+# first
+first_phone = collection_phones.find_one()
+print(first_phone)
+
+query = {
+    # '_id': ObjectId('6a21a9d65f7f195a50597ade'),
+    'price': 65000
+}
+wanted_book = collection_phones.find_one(query)
+print(wanted_book)
 
 
 
