@@ -116,19 +116,37 @@ for phone in all_phones:
 
 
 # UPDATE
-# $set
+# # $set
+# query = {'title': 'iPhone 17 max 123'}
+# new_data = {'$set': {'price': 77777, 'weight': 250}}
+# updated = collection_phones.update_many(query, new_data)
+# print(updated)
+
+# $unset
+# query = {'title': 'iPhone 17 max 123'}
+# new_data = {'$unset': {'weight': ""}}
+# updated = collection_phones.update_many(query, new_data)
+# print(updated)
+
+
+# # $increase
+# query = {'title': 'iPhone 17 max 123'}
+# operation = {'$inc': {'price': 100}}
+# updated = collection_phones.update_many(query, operation)
+# print(updated)
+
+# # multiplication
+# query = {'title': 'iPhone 17 max 123'}
+# operation = {'$mul': {'cost': 1.2}}
+# updated = collection_phones.update_many(query, operation)
+# print(updated)
+
+
+# multiplication + increase + set
 query = {'title': 'iPhone 17 max 123'}
-new_data = {'$set': {'price': 77777, 'weight': 250}}
-updated = collection_phones.update_many(query, new_data)
+operation = {'$mul': {'price': 0.9}, '$inc': {'cost': 30, 'warranty': -4}, '$set': {"discounted": True} }
+updated = collection_phones.update_many(query, operation)
 print(updated)
-
-
-
-
-
-
-
-
 
 
 
