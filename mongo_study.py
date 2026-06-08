@@ -40,8 +40,8 @@ phones = [
     {'title': 'iPhone 15', "price": 65000, 'description': "cool"},
     {'title': 'iPhone 14', "price": 65000, 'description': "cool", 'is_restored': True},
 ]
-# created_phones = collection_phones.insert_many(phones)
-# print(created_phones)
+created_phones = collection_phones.insert_many(phones)
+print(created_phones)
 
 
 # READ
@@ -94,7 +94,7 @@ query = {'title': 'iPhone 17 Pro Max'}
 query = {'title': {"$regex": "i*"}}  # * -> any sequence of letters
 query = {'title': {"$regex": "I*", "$options": 'i'}}  # i -> any register
 query = {'title': {"$regex": "i*max", "$options": 'i'}}
-query = {}
+# query = {}
 
 
 
@@ -108,13 +108,19 @@ for phone in all_phones:
     print(phone)
 
 
-# DELETE
-query = {'_id': ObjectId('6a21a9d65f7f195a50597ade')}
-updated_obj = collection_phones.delete_one(query)
-# updated_obj = collection_phones.delete_many(query)
-print(updated_obj)
+# # DELETE
+# query = {'_id': ObjectId('6a21a9d65f7f195a50597ade')}
+# updated_obj = collection_phones.delete_one(query)
+# # updated_obj = collection_phones.delete_many(query)
+# print(updated_obj)
 
 
+# UPDATE
+# $set
+query = {'title': 'iPhone 17 max 123'}
+new_data = {'$set': {'price': 77777, 'weight': 250}}
+updated = collection_phones.update_many(query, new_data)
+print(updated)
 
 
 
